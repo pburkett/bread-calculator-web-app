@@ -1,12 +1,15 @@
 // import Value from "./Models/Value.js"
 import Formula from "./Models/Formula.js"
+import DoughWeight from "./Models/DoughShape.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
   // /** @type {Value[]} */
   // values = []
-  Forumals = [new Formula('White',)]
+
+  formulas = []
+  doughShapes = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

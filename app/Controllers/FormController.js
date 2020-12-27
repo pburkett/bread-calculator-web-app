@@ -30,6 +30,7 @@ function _draw() {
             </form>
         </table>`
     document.getElementById("app").innerHTML = template
+    document.getElementById("page-header").innerText = 'Please fill out form below'
 }
 
 export default class FormController {

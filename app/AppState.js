@@ -10,6 +10,7 @@ class AppState extends EventEmitter {
 
   formulas = []
   doughShapes = []
+  recipes = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

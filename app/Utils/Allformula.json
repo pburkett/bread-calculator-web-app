@@ -1,0 +1,77 @@
+[
+    {
+        "type": "formula",
+        "id": "2396",
+        "name": "Sourdough",
+        "flourList": [
+            {
+                "flourName": "white flour",
+                "flourPercentage": 50.0
+            },
+            {
+                "flourName": "bread flour",
+                "flourPercentage": 50.0
+            }
+        ],
+        "ingredientList": [
+            {
+                "ingredientName": "water",
+                "ingredientPercentage": 75.0
+            }
+        ]
+    },
+    {
+        "type": "formula",
+        "id": "54171",
+        "name": "Ciabatta",
+        "flourList": [
+            {
+                "flourName": "white flour",
+                "flourPercentage": 90.0
+            },
+            {
+                "flourName": "bread flour",
+                "flourPercentage": 10.0
+            }
+        ],
+        "ingredientList": [
+            {
+                "ingredientName": "water",
+                "ingredientPercentage": 67.0
+            },
+            {
+                "ingredientName": "salt",
+                "ingredientPercentage": 1.0
+            },
+            {
+                "ingredientName": "yeast",
+                "ingredientPercentage": 2.0
+            }
+        ]
+    },
+    {
+        "type": "formula",
+        "id": "36079",
+        "name": "White",
+        "flourList": [
+            {
+                "flourName": "white flour ",
+                "flourPercentage": 100.0
+            }
+        ],
+        "ingredientList": [
+            {
+                "ingredientName": "water",
+                "ingredientPercentage": 62.0
+            },
+            {
+                "ingredientName": "salt",
+                "ingredientPercentage": 1.5
+            },
+            {
+                "ingredientName": "yeast",
+                "ingredientPercentage": 2.0
+            }
+        ]
+    }
+]

@@ -8,7 +8,7 @@ class DoughShapeService {
         console.log(doughShapeData);
         for (let index in doughShapeData) {
             let doughShape = doughShapeData[index]
-            ProxyState.doughShapes = [...ProxyState.doughShapes, new DoughShape(doughShape.name, doughShape.weight, doughShape.id)]
+            ProxyState.doughShapes = [...ProxyState.doughShapes, new DoughShape(doughShape.name, doughShape.doughWeight, doughShape.id)]
         }
     }
     calculateDoughWeights(dataObj) {

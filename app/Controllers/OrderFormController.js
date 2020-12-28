@@ -32,6 +32,7 @@ function _draw() {
     document.getElementById("page-header").innerText = 'Please fill out form below'
 
     localStorage.setItem("formulas", JSON.stringify(ProxyState.formulas))
+    localStorage.setItem("doughShapes", JSON.stringify(ProxyState.doughShapes))
 }
 
 

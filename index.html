@@ -70,23 +70,28 @@
 
                     </div>
                     <div class="modal-body">
-                        <form class=" px-5">
-                            <div class="row justify-content-between mb-2 pb-2 border-bottom border-primary">
-                                <input type="text" placeholder="Formula Name">
-                                <input type="text" placeholder="Short Description" maxlength="50">
+                        <form onsubmit="app.formController.formulaFormSubmit()" id="formula-form" class="px-5">
+                            <div class="row justify-content-between mb-2 pb-4 border-bottom border-primary">
+                                <input form="formula-form" type="text" id="formula-name" placeholder="Formula Name">
+                                <input form="formula-form" type="text" id="descrip" placeholder="Short Description"
+                                    maxlength="50">
                             </div>
-                            <div class="row justify-content-between mb-2" id="flour-input-row">
-                                <input type="text" id="flour-name-0" placeholder="Flour Name">
-                                <input type="text" id="flour-%-0" placeholder="Flour Percentage">
+                            <div class="row justify-content-between" id="flour-input-row">
+                                <input form="formula-form" type="text" id="flour-name-0" placeholder="Flour Name"
+                                    class="mb-2 flour-input">
+                                <input form="formula-form" type="text" id="flour-%-0" placeholder="Flour Percentage"
+                                    class="mb-2 flour-input">
                             </div>
                             <div class="row mb-2">
                                 <button type="button" onclick="app.formController.addFlourInput()"
                                     class="btn btn-primary">Add New Flour
                                     Input</button>
                             </div>
-                            <div class="row justify-content-between mb-2" id="ingredient-input-row">
-                                <input type="text" placeholder="Ingredient Name">
-                                <input type="text" placeholder="Ingredient Percentage">
+                            <div class="row justify-content-between" id="ingredient-input-row">
+                                <input form="formula-form" type="text" id="ingredient-name-0"
+                                    placeholder="Ingredient Name" class="mb-2 ingredient-input">
+                                <input form="formula-form" type="text" id="ingredient-%-0"
+                                    placeholder="Ingredient Percentage" class="mb-2 ingredient-input">
                             </div>
                             <div class="row mb-2">
                                 <button type="button" class="btn btn-primary"
@@ -97,7 +102,7 @@
                     </div>
                     <div class="modal-footer border-primary">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Create</button>
+                        <button form="formula-form" type="submit" class="btn btn-primary">Create</button>
                     </div>
                 </div>
             </div>

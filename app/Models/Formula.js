@@ -6,6 +6,7 @@ export default class Formula {
         this.id = id || generateId()
         this.ingredientList = ingredientList
         this.flourList = flourList
+        console.log(this.ingredientList);
     }
     get RowTemplate() {
         return `

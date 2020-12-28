@@ -24,12 +24,12 @@ export default class NewFormulaController {
                 })
                 totalFlourPercentage += Number(form[`flour-%-${i}`].value)
             } else {
-                window.alert('Data Invalid! ln 80')
+                window.alert('Data Invalid!')
                 return
             }
         }
         if (totalFlourPercentage != 100) {
-            window.alert('Data Invalid! The sum of all flour percentages must be 100! ln 85')
+            window.alert('Data Invalid! The sum of all flour percentages must be 100!')
             return
         }
 
@@ -42,7 +42,7 @@ export default class NewFormulaController {
                 })
 
             } else {
-                window.alert('Data Invalid! ln 93')
+                window.alert('Data Invalid!')
                 return
             }
 

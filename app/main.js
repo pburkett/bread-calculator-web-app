@@ -1,11 +1,13 @@
-// import ValuesController from "./Controllers/ValuesController.js";
-import FormController from "./Controllers/FormController.js"
-import { recipeController } from "./Controllers/RecipeController.js"
+import OrderFormController from "./Controllers/OrderFormController.js"
+import FormController from "./Controllers/NewFormulaController.js"
+import RecipeController from "./Controllers/RecipeController.js"
+import NewShapeController from "./Controllers/NewShapeController.js"
 
 class App {
-  // valuesController = new ValuesController();
   formController = new FormController()
-
+  orderFormController = new OrderFormController()
+  recipeController = new RecipeController()
+  newShapeController = new NewShapeController()
 }
 
 window["app"] = new App();

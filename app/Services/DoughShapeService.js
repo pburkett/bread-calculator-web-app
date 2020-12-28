@@ -31,5 +31,13 @@ class DoughShapeService {
         console.log('DoughShapeService data output: ', weightsData)
         formulaService.calculateRecipes(weightsData)
     }
+    shapeFormSubmit({ name, descrip, weight, unitIsGrams }) {
+        console.log(unitIsGrams);
+        if (unitIsGrams == 'false') {
+            weight *= 28.35
+            console.log(weight);
+        }
+        ProxyState.doughShapes = [...ProxyState.doughShapes, new DoughShape(name, weight, descrip)]
+    }
 }
 export const doughShapeService = new DoughShapeService()

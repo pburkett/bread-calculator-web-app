@@ -2,11 +2,11 @@ import { ProxyState } from "../AppState.js"
 import Formula from "../Models/Formula.js"
 import DoughShape from "../Models/DoughShape.js"
 import Recipe from "../Models/Recipe.js"
-import { recipeController } from "../Controllers/RecipeController.js"
+import RecipeController from "../Controllers/RecipeController.js"
+
 class FormulaService {
     constructor() {
         let formulaData = JSON.parse(localStorage.getItem("formulas"))
-        console.log(formulaData);
         for (let index in formulaData) {
             let formula = formulaData[index]
             ProxyState.formulas = [...ProxyState.formulas, new Formula(formula.name, formula.flourList, formula.ingredientList, formula.id)]
@@ -49,7 +49,7 @@ class FormulaService {
             recipeData['metaData']['totalWeight'] = weightsData[key]
             console.log(recipeData);
             ProxyState.recipes = [...ProxyState.recipes, new Recipe(recipeData)]
-            recipeController.draw()
+
 
 
         }

@@ -3,63 +3,8 @@ import { formulaService } from "../Services/FormulaService.js"
 import { doughShapeService } from "../Services/DoughShapeService.js"
 import Formula from "../Models/Formula.js"
 
-function _draw() {
-    let template = `<table class="table">
-            <thead>
-                <tr>
-                    <th></th>`
-    for (let index in ProxyState.doughShapes) {
-        template += ProxyState.doughShapes[index].ColTemplate
-    }
-    template += `
-                </tr>
-            </thead>
-            <form onsubmit="app.formController.orderFormSubmit()" id="form1">
-                <tbody>
-        `
-    for (let formulaIndex in ProxyState.formulas) {
-        template += ProxyState.formulas[formulaIndex].RowTemplate
-        for (let doughShapeIndex in ProxyState.doughShapes) {
-            template += ProxyState.formulas[formulaIndex].InputTemplate(ProxyState.doughShapes[doughShapeIndex].id)
-        }
-    }
-    template += `</tr>
-                <td>
-                    <button type="submit" form="form1">Submit</button>
-                </td>        
-            </tbody>
-            </form>
-        </table>`
-    document.getElementById("app").innerHTML = template
-    document.getElementById("page-header").innerText = 'Please fill out form below'
-
-    localStorage.setItem("formulas", JSON.stringify(ProxyState.formulas))
-}
-
-export default class FormController {
+export default class NewFormulaController {
     constructor() {
-        _draw()
-        ProxyState.on('formulas', _draw)
-        var inputNum = 1
-    }
-
-    orderFormSubmit() {
-        //takes in a form from the page, and organizes it into a POJO like this:
-        // { formulaID-doughShapeID: quantity}
-        console.log('form controller received form');
-        let form = window.event.target
-        event.preventDefault()
-        let keysArr = document.getElementsByClassName("qty-input")
-        let dataObj = {}
-
-        for (let index in keysArr) {
-            let key = keysArr[index].id
-            if (key) {
-                dataObj[key] = form[key].value
-            }
-        }
-        form.reset()
-        doughShapeService.calculateDoughWeights(dataObj)
     }
 
     formulaFormSubmit() {
@@ -103,7 +48,7 @@ export default class FormController {
 
         }
         form.reset()
-        console.log(dataObj);
+
         $("#formulaModal").modal('hide');
 
         ProxyState.formulas = [...ProxyState.formulas, new Formula(dataObj.metaData.name, dataObj.flourList, dataObj.ingredientList)]
@@ -120,9 +65,12 @@ export default class FormController {
         ProxyState.flourInputNum++
     }
     addIngredientInput() {
-        document.getElementById("ingredient-input-row").innerHTML += `
-            <input form="formula-form" type="text" required id="ingredient-name-${ProxyState.ingredientInputNum}" placeholder="Ingredient Name" class="mb-2 ingredient-input">
-            <input form="formula-form" type="number" id="ingredient-%-${ProxyState.ingredientInputNum}" placeholder="Ingredient Percentage" class="mb-2 ingredient-input">`
+        let targetElem = document.getElementById("ingredient-input-row")
+        let str = `<div class="row justify-content-between">
+                        <input form="formula-form" type="text" required id="ingredient-name-${ProxyState.ingredientInputNum}" placeholder="Ingredient Name" class="mb-2 ingredient-input">
+                        <input form="formula-form" type="number" id="ingredient-%-${ProxyState.ingredientInputNum}" placeholder="Ingredient Percentage" class="mb-2 ingredient-input">
+                    </div>`
+        targetElem.insertAdjacentHTML('beforebegin', str);
         ProxyState.ingredientInputNum++
     }
 }

@@ -25,7 +25,6 @@
                 </button>
             </div>
             <div class="col-2">
-                <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary mt-5 bg-secondary text-primary" data-toggle="modal"
                     data-target="#doughShapeModal">
                     Create Dough Shape
@@ -42,18 +41,34 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">New Dough Shape</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <h5 class="modal-title">New Dough Shape</h5>
                     </div>
                     <div class="modal-body">
+                        <form onsubmit="app.newShapeController.shapeFormSubmit()" id="shape-form" class="px-5">
+                            <div class="row justify-content-between  pb-3 border-bottom border-primary">
+                                <input form="shape-form" type="text" id="shape-name" placeholder="Dough Shape Name">
+                                <input form="shape-form" type="text" id="shape-descrip" placeholder="Short Description"
+                                    maxlength="50">
+                            </div>
+                            <div class="row justify-content-center  py-3 border-bottom border-primary">
+                                <input form="shape-form" type="number" id="shape-weight" placeholder="Weight">
+                            </div>
+                            <div
+                                class="row justify-content-center align-items-center  py-3 border-bottom border-primary">
+                                <label for="grams-unit-btn" class="mb-0">Grams: </label>
+                                <input value="true" form="shape-form" checked type="radio" name="unit-btns"
+                                    class="mx-1">
+                                <label for="oz-unit-btn" class="mb-0">Ounces: </label>
+                                <input value="false" form="shape-form" type="radio" name="unit-btns" class="mx-1">
 
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="submit" form="shape-form" class="btn btn-primary">Create</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Create</button>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -72,8 +87,7 @@
                     <div class="modal-body">
                         <form onsubmit="app.formController.formulaFormSubmit()" id="formula-form" class="px-5">
                             <div class="row justify-content-between mb-2 pb-4 border-bottom border-primary">
-                                <input form="formula-form" type="text" required id="formula-name"
-                                    placeholder="Formula Name">
+                                <input form="formula-form" type="text" id="formula-name" placeholder="Formula Name">
                                 <input form="formula-form" type="text" id="descrip" placeholder="Short Description"
                                     maxlength="50">
                             </div>

@@ -15,12 +15,93 @@
     <header class="container-fluid bg-primary align-items-center justify-content-center d-flex ">
         <div class="row">
             <div class="col">
-                <h1 id="page-title" class="text-center">Baking Calculator</h1>
-                <h5 id="page-header" class="text-center"></h5>
+                <h1 id="page-title" class="text-center offset-4">Baking Calculator</h1>
+                <h5 id="page-header" class="text-center offset-4"></h5>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-primary mt-5 bg-secondary text-primary" data-toggle="modal"
+                    data-target="#formulaModal">
+                    Create Formula
+                </button>
+            </div>
+            <div class="col-2">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary mt-5 bg-secondary text-primary" data-toggle="modal"
+                    data-target="#doughShapeModal">
+                    Create Dough Shape
+                </button>
+
+
             </div>
         </div>
     </header>
     <main>
+        <!-- doughshape Modal -->
+        <div class="modal fade" id="doughShapeModal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">New Dough Shape</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- formula Modal -->
+        <div class="modal fade" id="formulaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-primary">
+                        <div class="row mx-4">
+                            <h5 class="modal-title" id="exampleModalLongTitle">New Formula</h5>
+                        </div>
+
+                    </div>
+                    <div class="modal-body">
+                        <form class=" px-5">
+                            <div class="row justify-content-between mb-2 pb-2 border-bottom border-primary">
+                                <input type="text" placeholder="Formula Name">
+                                <input type="text" placeholder="Short Description" maxlength="50">
+                            </div>
+                            <div class="row justify-content-between mb-2" id="flour-input-row">
+                                <input type="text" id="flour-name-0" placeholder="Flour Name">
+                                <input type="text" id="flour-%-0" placeholder="Flour Percentage">
+                            </div>
+                            <div class="row mb-2">
+                                <button type="button" onclick="app.formController.addFlourInput()"
+                                    class="btn btn-primary">Add New Flour
+                                    Input</button>
+                            </div>
+                            <div class="row justify-content-between mb-2" id="ingredient-input-row">
+                                <input type="text" placeholder="Ingredient Name">
+                                <input type="text" placeholder="Ingredient Percentage">
+                            </div>
+                            <div class="row mb-2">
+                                <button type="button" class="btn btn-primary"
+                                    onclick="app.formController.addIngredientInput()">Add New Ingredient Input</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer border-primary">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="app" class="container-fluid bg-secondary">
         </div>
     </main>
@@ -29,6 +110,15 @@
     </footer>
 
     <script src="app/main.js" type="module"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

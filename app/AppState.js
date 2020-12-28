@@ -9,6 +9,9 @@ class AppState extends EventEmitter {
   formulas = []
   doughShapes = []
   recipes = []
+
+  flourInputNum = 1
+  ingredientInputNum = 1
 }
 
 export const ProxyState = new Proxy(new AppState(), {

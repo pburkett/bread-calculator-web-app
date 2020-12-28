@@ -36,6 +36,8 @@ function _draw() {
 export default class FormController {
     constructor() {
         _draw()
+        ProxyState.on('formulas', _draw)
+        var inputNum = 1
     }
 
     formSubmit() {
@@ -56,5 +58,17 @@ export default class FormController {
         }
         form.reset()
         doughShapeService.calculateDoughWeights(dataObj)
+    }
+    addFlourInput() {
+        document.getElementById("flour-input-row").innerHTML += `
+            <input type="text" id="flour-name-${ProxyState.flourInputNum}" placeholder="Flour Name">
+            <input type="text" id="flour-%-${ProxyState.flourInputNum}" placeholder="Flour Percentage">`
+        ProxyState.flourInputNum++
+    }
+    addIngredientInput() {
+        document.getElementById("ingredient-input-row").innerHTML += `
+            <input type="text" id="ingredient-name-${ProxyState.ingredientInputNum}" placeholder="Ingredient Name">
+            <input type="text" id="ingredient-%-${ProxyState.ingredientInputNum}" placeholder="Ingredient Percentage">`
+        ProxyState.ingredientInputNum++
     }
 }

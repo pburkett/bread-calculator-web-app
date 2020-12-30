@@ -45,6 +45,8 @@ export default class OrderFormController {
         _draw()
         ProxyState.on('formulas', _draw)
         ProxyState.on('doughShapes', _draw)
+        ProxyState.on('defaultFormulas', _draw)
+        ProxyState.on('defaultDoughShapes', _draw)
 
     }
     //takes in a form from the page, and organizes it into a POJO like this:
@@ -65,6 +67,18 @@ export default class OrderFormController {
         }
         form.reset()
         doughShapeService.calculateDoughWeights(dataObj)
+    }
+
+    deleteFormula(id) {
+        if (window.confirm('Are you sure you want to delete this formula? This action cannot be undone.\nNote: Default formulas cannot be deleted permenantly.')) {
+            ProxyState.formulas = ProxyState.formulas.filter(f => f.id != id)
+            ProxyState.defaultFormulas = ProxyState.defaultFormulas.filter(f => f.id != id)
+        }
+    }
+    deleteDoughShape(id) {
+        if (window.confirm('Are you sure you want to delete this dough shape? This action cannot be undone. \nNote: Default dough shapes cannot be deleted permenantly.'))
+            ProxyState.doughShapes = ProxyState.doughShapes.filter(d => d.id != id)
+        ProxyState.defaultDoughShapes = ProxyState.defaultDoughShapes.filter(d => d.id != id)
     }
 }
 

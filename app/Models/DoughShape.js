@@ -9,7 +9,7 @@ export default class DoughShape {
     }
     get ColTemplate() {
         return `
-        <th>${this.name}</th>
+        <th><button onclick="app.orderFormController.deleteDoughShape('${this.id}')" class="fa fa-times bg-secondary mr-2" aria-hidden="true"></button>${this.name}</th>
         `
     }
 }

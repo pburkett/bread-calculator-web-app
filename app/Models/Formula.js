@@ -10,7 +10,7 @@ export default class Formula {
     get RowTemplate() {
         return `
         <tr>
-            <td>${this.name}</td>`
+            <td><button onclick="app.orderFormController.deleteFormula('${this.id}')" class="fa fa-times bg-secondary mr-2" aria-hidden="true"></button>${this.name}</td>`
     }
     InputTemplate(doughWeightID) {
         return `

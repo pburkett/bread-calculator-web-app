@@ -52,25 +52,31 @@ export default class NewFormulaController {
         $("#formulaModal").modal('hide');
 
         ProxyState.formulas = [...ProxyState.formulas, new Formula(dataObj.metaData.name, dataObj.flourList, dataObj.ingredientList)]
-
+        // the page reload is here to reset the number of entry fields in the form. I swear, its not me being lazy!
+        location.reload()
     }
 
+
+
     addFlourInput() {
-        let targetElem = document.getElementById("flour-input-row")
-        let str = `<div class="row justify-content-between">
+
+        let targetElem = document.getElementById(`flour-input-row-${ProxyState.flourInputNum}`)
+        ProxyState.flourInputNum++
+        let str = `<div class="row justify-content-between" id="flour-input-row-${ProxyState.flourInputNum}">
                         <input form = "formula-form" type = "text" required id = "flour-name-${ProxyState.flourInputNum}" placeholder = "Flour Name" class="mb-2 flour-input">
                         <input form="formula-form" type="number" id="flour-%-${ProxyState.flourInputNum}" placeholder="Flour Percentage" class="mb-2 flour-input">
                         </div>`
-        targetElem.insertAdjacentHTML('beforebegin', str);
-        ProxyState.flourInputNum++
+        targetElem.insertAdjacentHTML('afterend', str)
+
     }
     addIngredientInput() {
-        let targetElem = document.getElementById("ingredient-input-row")
-        let str = `<div class="row justify-content-between">
+        let targetElem = document.getElementById(`ingredient-input-row-${ProxyState.ingredientInputNum}`)
+        ProxyState.ingredientInputNum++
+        let str = `<div class="row justify-content-between" id="ingredient-input-row-${ProxyState.ingredientInputNum}">
                         <input form="formula-form" type="text" required id="ingredient-name-${ProxyState.ingredientInputNum}" placeholder="Ingredient Name" class="mb-2 ingredient-input">
                         <input form="formula-form" type="number" id="ingredient-%-${ProxyState.ingredientInputNum}" placeholder="Ingredient Percentage" class="mb-2 ingredient-input">
                     </div>`
-        targetElem.insertAdjacentHTML('beforebegin', str);
-        ProxyState.ingredientInputNum++
+        targetElem.insertAdjacentHTML('afterend', str);
+
     }
 }

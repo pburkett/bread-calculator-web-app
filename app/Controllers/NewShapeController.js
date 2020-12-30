@@ -8,6 +8,10 @@ export default class NewShapeController {
         console.log('shapecontroller received form');
         let form = window.event.target
         event.preventDefault()
+        if (!form['shape-name'].value || !form['shape-weight'].value) {
+            window.alert('Data Invalid! Both a name and weight are required.')
+            return
+        }
         let dataObj = {
             name: form['shape-name'].value,
             descrip: form['shape-descrip'].value,
@@ -16,8 +20,7 @@ export default class NewShapeController {
 
         }
         form.reset()
-        $("#doughShapeModal").modal('hide');
-        console.log(dataObj);
+        $("#doughShapeModal").modal('hide');;
         doughShapeService.shapeFormSubmit(dataObj)
 
     }

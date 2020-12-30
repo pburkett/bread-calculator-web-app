@@ -11,7 +11,7 @@ export default class NewFormulaController {
         let form = window.event.target
         event.preventDefault()
         if (!form['formula-name'].value) {
-            window.alert('Data invalid! A name is required!')
+            window.alert('Data invalid! A name is required.')
             return
         }
         let dataObj = {
@@ -46,6 +46,7 @@ export default class NewFormulaController {
                     ingredientName: form[`ingredient-name-${i}`].value, ingredientPercentage: Number(form[`ingredient-%-${i}`].value)
                 })
 
+            } else if (!(form[`ingredient-name-${i}`].value || form[`ingredient-%-${i}`].value)) {
             } else {
                 window.alert('Data Invalid! All ingredient entries must have a name and percentage.')
                 return

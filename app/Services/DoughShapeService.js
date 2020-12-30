@@ -13,7 +13,7 @@ class DoughShapeService {
     calculateDoughWeights(dataObj) {
         //iterates over all input data from the page, then compiles it into 1 vweight value per formula. the data looks like this:
         // { formulaID: totalWeight}
-        console.log('DoughShapeService data input: ', dataObj);
+
         let weightsData = {}
         let doughShapes = [...ProxyState.doughShapes, ...ProxyState.defaultDoughShapes]
 
@@ -32,7 +32,6 @@ class DoughShapeService {
         formulaService.calculateRecipes(weightsData)
     }
     shapeFormSubmit({ name, descrip, weight, unitIsGrams }) {
-        console.log(unitIsGrams);
         if (unitIsGrams == 'false') {
             weight *= 28.35
             weight.toFixed(2)

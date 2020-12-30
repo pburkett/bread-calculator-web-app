@@ -35,7 +35,8 @@ class DoughShapeService {
         console.log(unitIsGrams);
         if (unitIsGrams == 'false') {
             weight *= 28.35
-            console.log(weight);
+            weight.toFixed(2)
+
         }
         ProxyState.doughShapes = [...ProxyState.doughShapes, new DoughShape(name, weight, descrip)]
     }

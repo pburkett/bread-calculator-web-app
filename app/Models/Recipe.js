@@ -5,10 +5,9 @@ export default class Recipe {
         this.formulaName = metaData.formulaName
         this.formulaId = metaData.formulaId
         this.totalWeight = metaData.totalWeight
-        this.list = [...ingredientList, ...flourList]
+        this.list = [...flourList, ...ingredientList]
         this.recipeId = recipeId || generateId()
-        console.log(this.formulaName);
-        console.log(this.ingredientList);
+
     }
 
     get Template() {

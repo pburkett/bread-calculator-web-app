@@ -3,10 +3,9 @@ import { generateId } from "../Utils/GenerateId.js"
 export default class Formula {
     constructor(name, flourList, ingredientList, id) {
         this.name = name
-        this.id = id || generateId()
         this.ingredientList = ingredientList
         this.flourList = flourList
-        console.log(this.ingredientList);
+        this.id = id || generateId()
     }
     get RowTemplate() {
         return `

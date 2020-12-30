@@ -50,8 +50,10 @@ export default class NewFormulaController {
         form.reset()
 
         $("#formulaModal").modal('hide');
+        let arr = ProxyState.formulas
+        arr.push(new Formula(dataObj.metaData.name, dataObj.flourList, dataObj.ingredientList))
+        ProxyState.formulas = arr
 
-        ProxyState.formulas = [...ProxyState.formulas, new Formula(dataObj.metaData.name, dataObj.flourList, dataObj.ingredientList)]
         // the page reload is here to reset the number of entry fields in the form. I swear, its not me being lazy!
         location.reload()
     }

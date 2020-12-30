@@ -2,12 +2,14 @@ import { doughShapeService } from "../Services/DoughShapeService.js"
 import { ProxyState } from "../AppState.js"
 
 function _draw() {
+    let formulas = [...ProxyState.formulas, ...ProxyState.defaultFormulas]
+    let doughShapes = [...ProxyState.doughShapes, ...ProxyState.defaultDoughShapes]
     let template = `<table class="table">
             <thead>
                 <tr>
                     <th></th>`
-    for (let index in ProxyState.doughShapes) {
-        template += ProxyState.doughShapes[index].ColTemplate
+    for (let index in doughShapes) {
+        template += doughShapes[index].ColTemplate
     }
     template += `
                 </tr>
@@ -15,10 +17,11 @@ function _draw() {
             <form onsubmit="app.orderFormController.orderFormSubmit()" id="form1">
                 <tbody>
         `
-    for (let formulaIndex in ProxyState.formulas) {
-        template += ProxyState.formulas[formulaIndex].RowTemplate
-        for (let doughShapeIndex in ProxyState.doughShapes) {
-            template += ProxyState.formulas[formulaIndex].InputTemplate(ProxyState.doughShapes[doughShapeIndex].id)
+    for (let formulaIndex in formulas) {
+        template += formulas[formulaIndex].RowTemplate
+        for (let doughShapeIndex in doughShapes) {
+            template += formulas[formulaIndex].InputTemplate(doughShapes[doughShapeIndex].id)
+
         }
     }
     template += `</tr>
@@ -30,6 +33,7 @@ function _draw() {
         </table>`
     document.getElementById("app").innerHTML = template
     document.getElementById("page-header").innerText = 'Please fill out form below'
+
 
     localStorage.setItem("formulas", JSON.stringify(ProxyState.formulas))
     localStorage.setItem("doughShapes", JSON.stringify(ProxyState.doughShapes))

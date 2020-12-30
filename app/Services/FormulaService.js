@@ -17,8 +17,8 @@ class FormulaService {
         console.log('FormulaService.calculateRecipes data input: ', weightsData);
         for (let key in weightsData) {
             let recipeData = {}
-
-            let formula = ProxyState.formulas.find(f => f.id == key)
+            let formulas = [...ProxyState.formulas, ...ProxyState.defaultFormulas]
+            let formula = formulas.find(f => f.id == key)
             let flourList = formula.flourList
             let ingredientList = formula.ingredientList
 

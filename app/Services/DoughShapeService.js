@@ -5,7 +5,6 @@ import { formulaService } from "./FormulaService.js"
 class DoughShapeService {
     constructor() {
         let doughShapeData = JSON.parse(localStorage.getItem("doughShapes"))
-        console.log(doughShapeData);
         for (let index in doughShapeData) {
             let doughShape = doughShapeData[index]
             ProxyState.doughShapes = [...ProxyState.doughShapes, new DoughShape(doughShape.name, doughShape.doughWeight, doughShape.id)]
@@ -16,19 +15,20 @@ class DoughShapeService {
         // { formulaID: totalWeight}
         console.log('DoughShapeService data input: ', dataObj);
         let weightsData = {}
+        let doughShapes = [...ProxyState.doughShapes, ...ProxyState.defaultDoughShapes]
 
         for (let key in dataObj) {
             let arr = key.split('-')
             let formulaKey = arr[0]
             let shapeKey = arr[1]
-            let shapeInMem = ProxyState.doughShapes.find(s => s.id == shapeKey)
+            let shapeInMem = doughShapes.find(s => s.id == shapeKey)
             if (!weightsData[formulaKey]) {
                 weightsData[formulaKey] = 0
             }
             weightsData[formulaKey] += shapeInMem.doughWeight * dataObj[key]
 
         }
-        console.log('DoughShapeService data output: ', weightsData)
+
         formulaService.calculateRecipes(weightsData)
     }
     shapeFormSubmit({ name, descrip, weight, unitIsGrams }) {

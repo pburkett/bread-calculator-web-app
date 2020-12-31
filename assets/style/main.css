@@ -10703,4 +10703,8 @@ footer {
   height: 10vh;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=main.css.map */

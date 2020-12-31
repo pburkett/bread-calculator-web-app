@@ -2,6 +2,8 @@ import { ProxyState } from "../AppState.js"
 import Formula from "../Models/Formula.js"
 import DoughShape from "../Models/DoughShape.js"
 import { formulaService } from "./FormulaService.js"
+import { convertToGrams, convertToOz } from "../Utils/RoundedWeightConverters.js"
+
 class DoughShapeService {
     constructor() {
         let doughShapeData = JSON.parse(localStorage.getItem("doughShapes"))
@@ -33,8 +35,10 @@ class DoughShapeService {
     }
     shapeFormSubmit({ name, descrip, weight, unitIsGrams }) {
         if (unitIsGrams == 'false') {
-            weight *= 28.35
-            weight.toFixed(2)
+            weight = Number(convertToGrams(weight))
+            weight.toFixed(0)
+            // weight *= 28.35
+            // weight.toFixed(2)
 
         }
         ProxyState.doughShapes = [...ProxyState.doughShapes, new DoughShape(name, weight, descrip)]

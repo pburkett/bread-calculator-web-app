@@ -37,13 +37,13 @@ class FormulaService {
             //loop sets individual weights for each flour in the flour list
             for (let index in flourList) {
                 let flourWeight = (totalFlourWeight * flourList[index]['flourPercentage'] / 100).toFixed(2)
-                recipeData['flourList'].push({ name: flourList[index]['flourName'], weight: flourWeight })
+                recipeData['flourList'].push({ name: flourList[index]['flourName'], weight: flourWeight, unit: 'grams' })
             }
 
             //loop sets individual weights for each ingredient in the ingredient list
             for (let index in ingredientList) {
                 let ingredientWeight = (totalFlourWeight * ingredientList[index]['ingredientPercentage'] / 100).toFixed(2)
-                recipeData['ingredientList'].push({ name: ingredientList[index]['ingredientName'], weight: ingredientWeight })
+                recipeData['ingredientList'].push({ name: ingredientList[index]['ingredientName'], weight: ingredientWeight, unit: 'grams' })
             }
 
             recipeData['metaData']['totalWeight'] = weightsData[key]

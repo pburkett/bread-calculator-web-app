@@ -2,12 +2,26 @@ import { doughShapeService } from "../Services/DoughShapeService.js"
 import { ProxyState } from "../AppState.js"
 
 function _draw() {
+    let bgBool = true
     let formulas = [...ProxyState.formulas, ...ProxyState.defaultFormulas]
     let doughShapes = [...ProxyState.doughShapes, ...ProxyState.defaultDoughShapes]
-    let template = `<table class="table">
-            <thead>
-                <tr>
-                    <th></th>`
+    let template = `
+    <div class="row my-2 justify-content-center">
+        <h3 class="col text-center">Dough Shapes
+        </h3>
+    </div>
+    <div class="row">
+            <div class="col-1 align-items-center d-flex" id="table-header-formulas-container">
+                <h3 id="table-header-formulas">Formulas
+                </h3>
+            </div>
+            <div class="col w-fit-content pl-0">
+                <table class="table w-fit-content mb-0">
+            
+            
+                    <thead id="form-shape-row">
+                        <tr>
+                            <th></th>`
     for (let index in doughShapes) {
         template += doughShapes[index].ColTemplate
     }
@@ -18,19 +32,22 @@ function _draw() {
                 <tbody>
         `
     for (let formulaIndex in formulas) {
-        template += formulas[formulaIndex].RowTemplate
+        template += formulas[formulaIndex].RowTemplate(bgBool)
+        bgBool = !bgBool
         for (let doughShapeIndex in doughShapes) {
             template += formulas[formulaIndex].InputTemplate(doughShapes[doughShapeIndex].id)
-
         }
     }
     template += `</tr>
-                <td>
-                    <button type="submit" form="form1">Submit</button>
-                </td>        
+                    
             </tbody>
             </form>
-        </table>`
+        </table>
+    </div>
+</div>
+<div class="row">
+<button type="submit" form="form1">Submit</button>
+</div>`
     document.getElementById("app").innerHTML = template
     document.getElementById("page-header").innerText = 'Please fill out form below'
 

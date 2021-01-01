@@ -6,15 +6,17 @@ export default class Formula {
         this.ingredientList = ingredientList
         this.flourList = flourList
         this.id = id || generateId()
+
     }
-    get RowTemplate() {
+    RowTemplate(bgBool) {
+
         return `
-        <tr>
-            <td><button onclick="app.orderFormController.deleteFormula('${this.id}')" class="fa fa-times bg-secondary mr-2" aria-hidden="true"></button><b>${this.name}</b></td>`
+        <tr class="${bgBool ? 'bg-success' : 'bg-secondary'}">
+            <td class="order-form-formula-header"><button onclick="app.orderFormController.deleteFormula('${this.id}')" class="d-none fa fa-times bg-secondary mr-2" aria-hidden="true"></button><b>${this.name}</b></td>`
     }
     InputTemplate(doughWeightID) {
         return `
-        <td><input placeholder="qty" type="text" form="form1" class="qty-input bg-warning" id="${this.id}-${doughWeightID}"></td>
+        <td class="justify-content-center order-form-td"><input placeholder="qty" type="text" form="form1" class="qty-input m4-auto" id="${this.id}-${doughWeightID}"></td>
         `
     }
 }

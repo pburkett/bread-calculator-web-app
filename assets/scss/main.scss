@@ -23,3 +23,49 @@ footer {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.qty-input {
+  width: 80px;
+  background: none;
+  border-style: none;
+  color: $warning;
+  
+}
+::placeholder{
+  color: $primary;
+}
+#form-shape-row {
+  border-top: 1rem;
+  border-style: solid;
+  border-color: $primary;
+  border-bottom: 3px;
+  border-left: none;
+  border-right: none;
+}
+#table-header-formulas{
+  transform: translateX(-2rem) rotate(270deg); 
+}
+#table-header-formulas-container{
+  border-right: 1rem;
+  border-style: solid;
+  border-color: $primary;
+  border-bottom: 1rem;
+  border-left: none;
+  border-top: none;
+}
+.w-fit-content {
+  width: fit-content !important;
+}
+.order-form-td {
+  border-left:5px solid $primary !important;;
+  border-top: 5px solid $primary !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-style: solid;
+  border-width: 5px !important;
+  padding-bottom: 0;
+}
+.order-form-formula-header {
+  @extend .order-form-td;
+  border-left: none !important;
+}

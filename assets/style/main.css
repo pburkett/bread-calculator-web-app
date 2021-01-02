@@ -10708,7 +10708,8 @@ footer {
 }
 
 .qty-input {
-  width: 80px;
+  text-align: center;
+  width: 100%;
   background: none;
   border-style: none;
   color: #0d3474;
@@ -10732,6 +10733,7 @@ footer {
 }
 
 #table-header-formulas-container {
+  width: 80px;
   border-right: 1rem;
   border-style: solid;
   border-color: #212121;
@@ -10745,17 +10747,25 @@ footer {
 }
 
 .order-form-td, .order-form-formula-header {
+  text-align: center;
+  vertical-align: middle !important;
+  max-width: 120px !important;
+  min-width: 80px !important;
   border-left: 5px solid #212121 !important;
   border-top: 5px solid #212121 !important;
   border-right: none !important;
   border-bottom: none !important;
   border-style: solid;
   border-width: 5px !important;
-  padding-bottom: 0;
 }
 
 .order-form-formula-header {
   border-left: none !important;
+  text-align: center;
+}
+
+.order-form-shape-header {
+  text-align: center;
 }
 
 .header-btns-cont {
@@ -10763,6 +10773,11 @@ footer {
   position: absolute;
   right: 0;
   top: 20px;
+}
+
+.page-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */

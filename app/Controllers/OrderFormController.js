@@ -11,7 +11,7 @@ function _draw() {
         </h3>
     </div>
     <div class="row justify-content-center">
-            <div class="col-1 align-items-center d-flex" id="table-header-formulas-container">
+            <div class="align-items-center d-flex" id="table-header-formulas-container">
                 <h3 id="table-header-formulas">Formulas
                 </h3>
             </div>

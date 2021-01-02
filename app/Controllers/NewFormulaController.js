@@ -5,6 +5,7 @@ import Formula from "../Models/Formula.js"
 
 export default class NewFormulaController {
     constructor() {
+        console.log('--')
     }
 
     formulaFormSubmit() {

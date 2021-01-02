@@ -10746,11 +10746,10 @@ footer {
   width: fit-content !important;
 }
 
-.order-form-td, .order-form-formula-header {
+.order-form-td, .order-form-shape-header, .order-form-formula-header {
   text-align: center;
   vertical-align: middle !important;
-  max-width: 120px !important;
-  min-width: 80px !important;
+  width: 120px !important;
   border-left: 5px solid #212121 !important;
   border-top: 5px solid #212121 !important;
   border-right: none !important;
@@ -10760,11 +10759,13 @@ footer {
 }
 
 .order-form-formula-header {
+  width: 200px !important;
   border-left: none !important;
   text-align: center;
 }
 
 .order-form-shape-header {
+  height: 125px !important;
   text-align: center;
 }
 

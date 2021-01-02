@@ -12,7 +12,7 @@ export default class Recipe {
     }
     get Template() {
         let template = /*html*/`
-        <div class="col-3 bg-primary mx-2">
+        <div class="col-3 bg-primary mx-2 text-success">
             <h4 class="text-center">${this.formulaName}</h4>
             <h5 class="text-center">Total Weight: ${this.weightDisplay(this.totalWeight, this.defaultUnit)}</h5>
             <div class="row ">
@@ -31,8 +31,6 @@ export default class Recipe {
     }
     weightDisplay(value, unit) {
         //takes in a  (number) value and a (string) unit pertaining to that value, and returns a string to display the weight in multiple units for ease of reading.
-
-
         let x = ''
         if (unit == 'oz') {
             if (value >= 16) {

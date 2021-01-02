@@ -56,10 +56,28 @@ function _draw() {
     localStorage.setItem("doughShapes", JSON.stringify(ProxyState.doughShapes))
 }
 
+//  function _hoverEffects(){
+//     let elems = document.getElementsByClassName('order-form-formula-header')
+//     console.log(elems);
+//     for (let i = 0; i < elems.length; i++){
+//         console.log(i);
+//          elems[i].addEventListener("mouseenter", function( event ) {
+//             console.log(event.path[0].classList[1]);
+//             document.getElementById(event.path[0].classList[1]).classList.remove("d-none")
+//             $(`#${event.path[0].classList[1]}`).modal('show');
+//          })
+//          elems[i].addEventListener("mouseleave", function( event ) {
+//             // document.getElementById(event.path[0].classList[1]).classList.add("d-none")
+//          })
+//         } 
+            
+        
+//         }
 
 export default class OrderFormController {
     constructor() {
         _draw()
+        // _hoverEffects()
         ProxyState.on('formulas', _draw)
         ProxyState.on('doughShapes', _draw)
         ProxyState.on('defaultFormulas', _draw)
@@ -97,5 +115,6 @@ export default class OrderFormController {
             ProxyState.doughShapes = ProxyState.doughShapes.filter(d => d.id != id)
         ProxyState.defaultDoughShapes = ProxyState.defaultDoughShapes.filter(d => d.id != id)
     }
+   
 }
 

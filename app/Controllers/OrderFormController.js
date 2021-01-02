@@ -10,12 +10,12 @@ function _draw() {
         <h3 class="col text-center">Dough Shapes
         </h3>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
             <div class="col-1 align-items-center d-flex" id="table-header-formulas-container">
                 <h3 id="table-header-formulas">Formulas
                 </h3>
             </div>
-            <div class="col w-fit-content pl-0">
+            <div class="w-fit-content pl-0">
                 <table class="table w-fit-content mb-0">
             
             
@@ -45,7 +45,7 @@ function _draw() {
         </table>
     </div>
 </div>
-<div class="row">
+<div class="row justify-content-center mt-4">
 <button type="submit" form="form1">Submit</button>
 </div>`
     document.getElementById("app").innerHTML = template
@@ -66,7 +66,7 @@ export default class OrderFormController {
         ProxyState.on('defaultDoughShapes', _draw)
 
     }
-    //takes in a form from the page, and organizes it into a POJO like this:
+    // takes in a form from the page, and organizes it into a POJO like this:
     // { formulaID-doughShapeID: quantity}
     orderFormSubmit() {
 

@@ -69,3 +69,9 @@ footer {
   @extend .order-form-td;
   border-left: none !important;
 }
+.header-btns-cont{
+  flex-direction: column;
+  position:absolute;
+  right:0;
+  top:20px;
+}

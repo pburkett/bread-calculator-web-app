@@ -10758,4 +10758,11 @@ footer {
   border-left: none !important;
 }
 
+.header-btns-cont {
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+
 /*# sourceMappingURL=main.css.map */

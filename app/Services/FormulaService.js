@@ -53,8 +53,8 @@ class FormulaService {
 
 
         }
-
-
     }
+
+    editFormulaItemTemplate(){}
 }
 export const formulaService = new FormulaService()

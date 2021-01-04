@@ -10719,27 +10719,8 @@ footer {
   color: #212121;
 }
 
-#form-shape-row {
-  border-top: 1rem;
-  border-style: solid;
-  border-color: #212121;
-  border-bottom: 3px;
-  border-left: none;
-  border-right: none;
-}
-
 #table-header-formulas {
   transform: translateX(-2rem) rotate(270deg);
-}
-
-#table-header-formulas-container {
-  width: 80px;
-  border-right: 1rem;
-  border-style: solid;
-  border-color: #212121;
-  border-bottom: 1rem;
-  border-left: none;
-  border-top: none;
 }
 
 .w-fit-content {
@@ -10779,6 +10760,43 @@ footer {
 .page-title {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#order-form-table {
+  border-style: solid;
+  border-color: #212121;
+  border-bottom: 5px solid #212121;
+  border-right: 5px solid #212121;
+  border-top: 1.5rem solid #212121;
+  border-left: 1.5rem solid #212121;
+}
+
+.custom-table-data, .custom-table-data-right, .custom-table-data-left {
+  border-top: none !important;
+  border-bottom: none !important;
+  height: 55px !important;
+  width: fit-content;
+}
+
+.custom-table-data-left {
+  border-right: 8px solid #212121;
+  text-align: right;
+}
+
+.custom-table-data-right {
+  border-left: 8px solid #212121;
+  text-align: left;
+}
+
+.edit-formula-input {
+  padding: 0 !important;
+  box-sizing: border-box;
+  width: 200px;
+}
+
+.formula-table-text {
+  padding: 1px 2px;
+  width: 200px;
 }
 
 /*# sourceMappingURL=main.css.map */

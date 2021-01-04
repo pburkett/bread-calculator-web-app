@@ -10,13 +10,13 @@ function _draw() {
         <h3 class="col text-center">Dough Shapes
         </h3>
     </div>
-    <div class="row justify-content-center">
+    <div class="row flex-nowrap justify-content-center">
             <div class="align-items-center d-flex" id="table-header-formulas-container">
                 <h3 id="table-header-formulas">Formulas
                 </h3>
             </div>
-            <div class="w-fit-content pl-0">
-                <table class="table w-fit-content mb-0">
+            
+                <table class="table w-fit-content mb-0" id="order-form-table">
             
             
                     <thead id="form-shape-row">
@@ -43,7 +43,7 @@ function _draw() {
             </tbody>
             </form>
         </table>
-    </div>
+    
 </div>
 <div class="row justify-content-center mt-4">
 <button type="submit" form="form1">Submit</button>
@@ -56,23 +56,6 @@ function _draw() {
     localStorage.setItem("doughShapes", JSON.stringify(ProxyState.doughShapes))
 }
 
-//  function _hoverEffects(){
-//     let elems = document.getElementsByClassName('order-form-formula-header')
-//     console.log(elems);
-//     for (let i = 0; i < elems.length; i++){
-//         console.log(i);
-//          elems[i].addEventListener("mouseenter", function( event ) {
-//             console.log(event.path[0].classList[1]);
-//             document.getElementById(event.path[0].classList[1]).classList.remove("d-none")
-//             $(`#${event.path[0].classList[1]}`).modal('show');
-//          })
-//          elems[i].addEventListener("mouseleave", function( event ) {
-//             // document.getElementById(event.path[0].classList[1]).classList.add("d-none")
-//          })
-//         } 
-            
-        
-//         }
 
 export default class OrderFormController {
     constructor() {

@@ -32,7 +32,7 @@
         </div>
         </div>
     </header>
-    <main>
+    <main id="main">
         <!-- doughshape Modal -->
         <div class="modal fade" id="doughShapeModal" tabindex="-1" role="dialog"
             >
@@ -101,9 +101,7 @@
 
                             <div class="row mb-2">
                                 <button type="button" onclick="app.formController.addFlourInput()"
-                                    class="btn btn-primary">Add
-                                    New Flour
-                                    Input</button>
+                                    class="btn btn-primary"><b>+</b> Flour</button>
                             </div>
                             <div class="row justify-content-between" id="ingredient-input-row-0">
                                 <input form="formula-form" type="text" id="ingredient-name-0"
@@ -113,7 +111,7 @@
                             </div>
                             <div class="row mb-2">
                                 <button type="button" class="btn btn-primary"
-                                    onclick="app.formController.addIngredientInput()">Add New Ingredient Input</button>
+                                    onclick="app.formController.addIngredientInput()"><b>+</b>Ingredient</button>
                             </div>
 
                         </form>

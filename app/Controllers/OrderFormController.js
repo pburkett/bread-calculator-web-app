@@ -75,9 +75,11 @@ export default class OrderFormController {
         let form = window.event.target
         event.preventDefault()
         let keysArr = document.getElementsByClassName("qty-input")
+            
         let dataObj = {}
 
         for (let index in keysArr) {
+            console.log(keysArr);
             let key = keysArr[index].id
             if (key) {
                 dataObj[key] = form[key].value

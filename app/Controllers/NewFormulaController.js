@@ -2,7 +2,7 @@ import { ProxyState } from "../AppState.js"
 import { formulaService } from "../Services/FormulaService.js"
 import { doughShapeService } from "../Services/DoughShapeService.js"
 import Formula from "../Models/Formula.js"
-
+import {generateId} from "../Utils/GenerateId.js"
 export default class NewFormulaController {
     constructor() {
         console.log('--')
@@ -24,7 +24,7 @@ export default class NewFormulaController {
             console.log(form[`flour-name-${i}`].value);
             if (form[`flour-name-${i}`].value && form[`flour-%-${i}`].value) {
                 dataObj.flourList.push({
-                    flourName: form[`flour-name-${i}`].value, flourPercentage: Number(form[`flour-%-${i}`].value)
+                    flourName: form[`flour-name-${i}`].value, flourPercentage: Number(form[`flour-%-${i}`].value), id: generateId()
                 })
                 totalFlourPercentage += Number(form[`flour-%-${i}`].value)
             } else if (!(form[`flour-name-${i}`].value || form[`flour-%-${i}`].value)) {
@@ -44,7 +44,7 @@ export default class NewFormulaController {
         for (let i = 0; i < keysArr.length / 2; i++) {
             if (form[`ingredient-name-${i}`].value && form[`ingredient-%-${i}`].value) {
                 dataObj.ingredientList.push({
-                    ingredientName: form[`ingredient-name-${i}`].value, ingredientPercentage: Number(form[`ingredient-%-${i}`].value)
+                    ingredientName: form[`ingredient-name-${i}`].value, ingredientPercentage: Number(form[`ingredient-%-${i}`].value), id: generateId()
                 })
 
             } else if (!(form[`ingredient-name-${i}`].value || form[`ingredient-%-${i}`].value)) {

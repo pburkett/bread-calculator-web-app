@@ -55,6 +55,19 @@ class FormulaService {
         }
     }
 
-    editFormulaItemTemplate(){}
+    editFormula(id, dataObj){
+        let allFormulas = [...ProxyState.formulas, ...ProxyState.defaultFormulas]
+        let toBeEdited = allFormulas.find(f => f.id == id)
+        for (let ind in Object.keys(dataObj)){
+            let keysArr = Object.keys(dataObj)[ind].split('-')
+            console.log(keysArr);
+            console.log(toBeEdited);
+            console.log(toBeEdited.list.find(i => i.id == keysArr[1]))
+            toBeEdited.list.find(i => i.id == keysArr[1])[keysArr[2]] = dataObj[Object.keys(dataObj)[ind]]
+            ProxyState.defaultFormulas = ProxyState.defaultFormulas
+            console.log(ProxyState.defaultFormulas);
+            $(`#modal-${id}`).modal('hide');
+        }
+    }
 }
 export const formulaService = new FormulaService()

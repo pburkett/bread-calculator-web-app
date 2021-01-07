@@ -3,14 +3,15 @@ import Formula from "./Models/Formula.js"
 import DoughShape from "./Models/DoughShape.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
+import { generateId } from "./Utils/GenerateId.js"
 
 class AppState extends EventEmitter {
   defaultFormulas = [new Formula("Default - Whole Wheat Bread",
-    [{ "flourName": "whole wheat flour", "flourPercentage": 50 }, { "flourName": "bread flour", "flourPercentage": 50 }],
-    [{ "ingredientName": "water", "ingredientPercentage": 60 }, { "ingredientName": "salt", "ingredientPercentage": 2 }, { "ingredientName": "yeast", "ingredientPercentage": 3 }]), new Formula(
-      "Default - Ciabatta", [{ "flourName": "white flour", "flourPercentage": 90 }, { "flourName": "bread flour", "flourPercentage": 10 }], [{
-        "ingredientName": "water", "ingredientPercentage": 69
-      }, { "ingredientName": "salt", "ingredientPercentage": 2 }, { "ingredientName": "yeast", "ingredientPercentage": 1 }])]
+    [{ "flourName": "whole wheat flour", "flourPercentage": 50, id: generateId() }, { "flourName": "bread flour", "flourPercentage": 50, id: generateId() }],
+    [{ "ingredientName": "water", "ingredientPercentage": 60, id: generateId() }, { "ingredientName": "salt", "ingredientPercentage": 2, id: generateId() }, { "ingredientName": "yeast", "ingredientPercentage": 3, id: generateId() }]), new Formula(
+      "Default - Ciabatta", [{ "flourName": "white flour", "flourPercentage": 90, id: generateId() }, { "flourName": "bread flour", "flourPercentage": 10, id: generateId() }], [{
+        "ingredientName": "water", "ingredientPercentage": 69, id: generateId()
+      }, { "ingredientName": "salt", "ingredientPercentage": 2, id: generateId() }, { "ingredientName": "yeast", "ingredientPercentage": 1, id: generateId() }])]
   defaultDoughShapes = [new DoughShape("Default - Pan Loaf", 1000), new DoughShape("Default - Baguette", 750)]
   formulas = []
   doughShapes = []

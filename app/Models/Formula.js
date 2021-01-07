@@ -53,18 +53,22 @@ export default class Formula {
         let template = /*html*/`
         <div class="d-flex h-50 bg-secondary justify-self-center">
         <table>
-        <form id="edit-${this.id}" onsubmit="app.formulaDisplayController.editFormula()">
+        <form id="edit-${this.id}" onsubmit="app.formulaDisplayController.editFormula('${this.id}')">
         <tbody>`
 
             for (let ind in this.list){
                 template += `<tr class="text-primary ${trClassBool ? 'bg-secondary':'bg-success'}">`
                 trClassBool = !trClassBool
                 for (let ind1 in this.list[ind]) {
-                  let id = generateId()
-                template += `<td id="${id}" class="${tdClassBool ? 'custom-table-data-right': 'custom-table-data-left'}">
-                              <div onclick="app.formulaDisplayController.editFormulaItemTemplate('${this.id}','${ind}', '${ind1}', '${id}')" class="cursor-pointer formula-table-text">${this.list[ind][ind1]}</div>
+                  if (ind1 != 'id') {
+  
+                  
+                  
+                template += `<td id="${ind1}-${this.list[ind].id}" class="${tdClassBool ? 'custom-table-data-right': 'custom-table-data-left'}">
+                              <h4 onclick="app.formulaDisplayController.editFormulaItemTemplate('${this.id}','${this.list[ind].id}', '${ind1}')" class="cursor-pointer formula-table-text">${this.list[ind][ind1]}</h4>
                               </td>`
                 tdClassBool = !tdClassBool
+              }
             } template += `</tr>`
         }
             template +=`

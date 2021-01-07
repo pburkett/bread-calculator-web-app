@@ -1,8 +1,6 @@
 import { ProxyState } from "../AppState.js"
 import Formula from "../Models/Formula.js"
-import DoughShape from "../Models/DoughShape.js"
 import Recipe from "../Models/Recipe.js"
-import RecipeController from "../Controllers/RecipeController.js"
 
 class FormulaService {
     constructor() {
@@ -11,7 +9,6 @@ class FormulaService {
             let formula = formulaData[index]
             ProxyState.formulas = [...ProxyState.formulas, new Formula(formula.name, formula.flourList, formula.ingredientList, formula.id)]
         }
-
     }
     calculateRecipes(weightsData) {
         console.log('FormulaService.calculateRecipes data input: ', weightsData);
@@ -49,24 +46,30 @@ class FormulaService {
             recipeData['metaData']['totalWeight'] = weightsData[key]
             console.log(recipeData);
             ProxyState.recipes = [...ProxyState.recipes, new Recipe(recipeData)]
-
-
-
         }
     }
 
     editFormula(id, dataObj){
+        
         let allFormulas = [...ProxyState.formulas, ...ProxyState.defaultFormulas]
         let toBeEdited = allFormulas.find(f => f.id == id)
+
+        // iterate over the object keys in our edit data
         for (let ind in Object.keys(dataObj)){
+            // build an array with 3 strings: formula id, item id, and name || percentage
             let keysArr = Object.keys(dataObj)[ind].split('-')
-            console.log(keysArr);
-            console.log(toBeEdited);
-            console.log(toBeEdited.list.find(i => i.id == keysArr[1]))
-            toBeEdited.list.find(i => i.id == keysArr[1])[keysArr[2]] = dataObj[Object.keys(dataObj)[ind]]
+
+            // alias the value to be injected
+            let val =  dataObj[Object.keys(dataObj)[ind]]
+
+            // cast our data into a Number() only if the location is a percentage
+            if (keysArr[2] == 'ingredientPercentage' || keysArr[2] == 'flourPercentage') {
+                val = Number(val)
+            }
+            // assign the new values into the formula object in memory
+            toBeEdited.list.find(i => i.id == keysArr[1])[keysArr[2]] = val
             ProxyState.defaultFormulas = ProxyState.defaultFormulas
-            console.log(ProxyState.defaultFormulas);
-            $(`#modal-${id}`).modal('hide');
+            
         }
     }
 }

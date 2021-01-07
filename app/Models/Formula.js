@@ -65,7 +65,7 @@ export default class Formula {
                   
                   
                 template += `<td id="${ind1}-${this.list[ind].id}" class="${tdClassBool ? 'custom-table-data-right': 'custom-table-data-left'}">
-                              <h4 onclick="app.formulaDisplayController.editFormulaItemTemplate('${this.id}','${this.list[ind].id}', '${ind1}')" class="cursor-pointer formula-table-text">${this.list[ind][ind1]}</h4>
+                <h4 onclick="app.formulaDisplayController.editFormulaItemTemplate('${this.id}','${this.list[ind].id}', '${ind1}')" class="cursor-pointer formula-table-text">${this.list[ind][ind1]}</h4>
                               </td>`
                 tdClassBool = !tdClassBool
               }
@@ -79,4 +79,10 @@ export default class Formula {
         `
         return template
     }
+    // displayItemTemplate(ind, ind1) {
+    //   console.log(ind, ind1);
+    //   return `
+    //   <h4 onclick="app.formulaDisplayController.editFormulaItemTemplate('${this.id}','${this.list[ind].id}', '${ind1}')" class="cursor-pointer formula-table-text">${this.list[ind][ind1]}</h4>
+    //   `
+    // }
 }

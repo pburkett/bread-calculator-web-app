@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>baking-calculator</title>
@@ -17,25 +16,55 @@
         <div class=" text-success position-relative h-100 align-items-center">
             <div class="d-inline ">
                 <h1 id="page-title" class="text-center page-title">Baking Calculator</h1>
+                <div class="row"><button class="btn bg-purple m-auto mb-2" data-toggle="modal" data-target="#exampleModalCenter">Instructions & Info</button></div>
                 <h5 id="page-header" class="text-center "></h5>
             </div>
             <div class="header-btns-cont mr-3">
-                <button type="button" class="btn btn-primary mt-3 bg-success text-primary " data-toggle="modal"
-                    data-target="#formulaModal">
+
+                <button type="button" class="btn btn-primary mt-3 bg-success text-primary " data-toggle="modal" data-target="#formulaModal">
                     Create Formula
                 </button>
-                <button type="button" class="btn btn-primary mt-3 bg-success text-primary" data-toggle="modal"
-                    data-target="#doughShapeModal">
+                <button type="button" class="btn btn-primary mt-3 bg-success text-primary" data-toggle="modal" data-target="#doughShapeModal">
                     Create Dough Shape
                 </button>
-            </div>  
+
+            </div>
         </div>
+        </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                    </div>
+                    <div class="modal-body">
+                        <P>
+                            This application aims to expedite the planning of commercial-scale bakes, with the use of Baker's percentages. You can create custom formulas and dough shapes, and use them to create recipes for bakes (custom data is currently saved to the browser, so
+                            it will not persist between different computers or browsers). This page should be used similarly to a spreedsheet. You start a new bake by filling the form with how many of each shape you want to bake of each formula. Once
+                            the form has all the quantities of dough shapes you desire, submit the form. This website will calculate recipes for each formula. Both ounces/grams and grams/kilograms are supported, but measurements by volume is not supported.
+
+                        </P>
+                        <p><u><a class="text-blue" href="https://github.com/pburkett/bread-calculator-web-app">This Page on GitHub</a></u>
+                        </p>
+                        <p>
+                            Made by: Parker Burkett
+                        </p>
+                        <p>
+                            Contact: pburkett636@gmail.com
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
     </header>
     <main id="main">
         <!-- doughshape Modal -->
-        <div class="modal fade" id="doughShapeModal" tabindex="-1" role="dialog"
-            >
+        <div class="modal fade" id="doughShapeModal" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -45,17 +74,14 @@
                         <form onsubmit="app.newShapeController.shapeFormSubmit()" id="shape-form" class="px-5">
                             <div class="row justify-content-between  pb-3 border-bottom border-primary">
                                 <input form="shape-form" type="text" id="shape-name" placeholder="Dough Shape Name">
-                                <input form="shape-form" type="text" id="shape-descrip" placeholder="Short Description"
-                                    maxlength="50">
+                                <input form="shape-form" type="text" id="shape-descrip" placeholder="Short Description" maxlength="50">
                             </div>
                             <div class="row justify-content-center  py-3 border-bottom border-primary">
                                 <input form="shape-form" type="number" id="shape-weight" placeholder="Weight">
                             </div>
-                            <div
-                                class="row justify-content-center align-items-center  py-3 border-bottom border-primary">
+                            <div class="row justify-content-center align-items-center  py-3 border-bottom border-primary">
                                 <label for="grams-unit-btn" class="mb-0">Grams: </label>
-                                <input value="true" form="shape-form" checked type="radio" name="unit-btns"
-                                    class="mx-1">
+                                <input value="true" form="shape-form" checked type="radio" name="unit-btns" class="mx-1">
                                 <label for="oz-unit-btn" class="mb-0">Ounces: </label>
                                 <input value="false" form="shape-form" type="radio" name="unit-btns" class="mx-1">
 
@@ -72,8 +98,7 @@
         </div>
 
         <!-- formula Modal -->
-        <div class="modal fade" id="formulaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
+        <div class="modal fade" id="formulaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header border-primary">
@@ -86,32 +111,25 @@
                         <form onsubmit="app.formController.formulaFormSubmit()" id="formula-form" class="px-5">
                             <div class="row justify-content-between mb-2 pb-4 border-bottom border-primary">
                                 <input form="formula-form" type="text" id="formula-name" placeholder="Formula Name">
-                                <input form="formula-form" type="text" id="descrip" placeholder="Short Description"
-                                    maxlength="50">
+                                <input form="formula-form" type="text" id="descrip" placeholder="Short Description" maxlength="50">
                             </div>
 
 
                             <div class="row justify-content-between" id="flour-input-row-0">
-                                <input form="formula-form" type="text" id="flour-name-0" placeholder="Flour Name"
-                                    class="mb-2 flour-input">
-                                <input form="formula-form" type="number" id="flour-%-0" placeholder="Flour Percentage"
-                                    class="mb-2 flour-input">
+                                <input form="formula-form" type="text" id="flour-name-0" placeholder="Flour Name" class="mb-2 flour-input">
+                                <input form="formula-form" type="number" id="flour-%-0" placeholder="Flour Percentage" class="mb-2 flour-input">
 
                             </div>
 
                             <div class="row mb-2">
-                                <button type="button" onclick="app.formController.addFlourInput()"
-                                    class="btn btn-primary"><b>+</b> Flour</button>
+                                <button type="button" onclick="app.formController.addFlourInput()" class="btn btn-primary"><b>+</b> Flour</button>
                             </div>
                             <div class="row justify-content-between" id="ingredient-input-row-0">
-                                <input form="formula-form" type="text" id="ingredient-name-0"
-                                    placeholder="Ingredient Name" class="mb-2 ingredient-input">
-                                <input form="formula-form" type="number" id="ingredient-%-0"
-                                    placeholder="Ingredient Percentage" class="mb-2 ingredient-input">
+                                <input form="formula-form" type="text" id="ingredient-name-0" placeholder="Ingredient Name" class="mb-2 ingredient-input">
+                                <input form="formula-form" type="number" id="ingredient-%-0" placeholder="Ingredient Percentage" class="mb-2 ingredient-input">
                             </div>
                             <div class="row mb-2">
-                                <button type="button" class="btn btn-primary"
-                                    onclick="app.formController.addIngredientInput()"><b>+</b>Ingredient</button>
+                                <button type="button" class="btn btn-primary" onclick="app.formController.addIngredientInput()"><b>+</b>Ingredient</button>
                             </div>
 
                         </form>
@@ -133,15 +151,9 @@
     </footer>
 
     <script src="app/main.js" type="module"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 
 </html>

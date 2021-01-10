@@ -50,7 +50,7 @@ function _draw() {
 <button type="submit" form="form1">Submit</button>
 </div>`
     document.getElementById("app").innerHTML = template
-    document.getElementById("page-header").innerText = 'Please fill out form below'
+    document.getElementById("page-header").innerText = 'Use the form below to start a new bake.'
 
 
     localStorage.setItem("formulas", JSON.stringify(ProxyState.formulas))

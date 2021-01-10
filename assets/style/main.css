@@ -10759,7 +10759,7 @@ footer {
 
 .page-title {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #order-form-table {
@@ -10804,6 +10804,10 @@ footer {
 .font-larger {
   font-size: 1.3rem;
   font-weight: 500;
+}
+
+.text-blue {
+  color: blue;
 }
 
 /*# sourceMappingURL=main.css.map */

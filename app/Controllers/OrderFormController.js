@@ -1,5 +1,6 @@
 import { doughShapeService } from "../Services/DoughShapeService.js"
 import { ProxyState } from "../AppState.js"
+import { formulaService } from "../Services/FormulaService.js"
 
 function _draw() {
     let bgBool = true
@@ -59,23 +60,23 @@ function _draw() {
 
 export default class OrderFormController {
     constructor() {
-        _draw()
-        // _hoverEffects()
-        ProxyState.on('formulas', _draw)
-        ProxyState.on('doughShapes', _draw)
-        ProxyState.on('defaultFormulas', _draw)
-        ProxyState.on('defaultDoughShapes', _draw)
+            _draw()
+                // _hoverEffects()
+            ProxyState.on('formulas', _draw)
+            ProxyState.on('doughShapes', _draw)
+            ProxyState.on('defaultFormulas', _draw)
+            ProxyState.on('defaultDoughShapes', _draw)
 
-    }
-    // takes in a form from the page, and organizes it into a POJO like this:
-    // { formulaID-doughShapeID: quantity}
+        }
+        // takes in a form from the page, and organizes it into a POJO like this:
+        // { formulaID-doughShapeID: quantity}
     orderFormSubmit() {
 
         console.log('form controller received form');
         let form = window.event.target
         event.preventDefault()
         let keysArr = document.getElementsByClassName("qty-input")
-            
+
         let dataObj = {}
 
         for (let index in keysArr) {
@@ -91,8 +92,8 @@ export default class OrderFormController {
 
     deleteFormula(id) {
         if (window.confirm('Are you sure you want to delete this formula? This action cannot be undone.\nNote: Default formulas cannot be deleted permenantly.')) {
-            ProxyState.formulas = ProxyState.formulas.filter(f => f.id != id)
-            ProxyState.defaultFormulas = ProxyState.defaultFormulas.filter(f => f.id != id)
+            $(`#modal-${id}`).modal('hide');
+            formulaService.deleteFormula(id)
         }
     }
     deleteDoughShape(id) {
@@ -100,6 +101,5 @@ export default class OrderFormController {
             ProxyState.doughShapes = ProxyState.doughShapes.filter(d => d.id != id)
         ProxyState.defaultDoughShapes = ProxyState.defaultDoughShapes.filter(d => d.id != id)
     }
-   
-}
 
+}

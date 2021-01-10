@@ -11,26 +11,43 @@ export default class Recipe {
 
     }
     get Template() {
-        let template = /*html*/`
-        <div class="col-3 bg-primary mx-2 text-success">
-            <h4 class="text-center">${this.formulaName}</h4>
-            <h5 class="text-center">Total Weight: ${this.weightDisplay(this.totalWeight, this.defaultUnit)}</h5>
-            <div class="row ">
-                <h5 class="ml-2">Change unit:</h5>
-                <input onclick="app.recipeController.changeDefaultUnit('${this.recipeId}','${this.defaultUnit}')" ${this.defaultUnit == 'oz' ? 'checked' : ''} type="checkbox" class="ml-2"></input>
-            </div>`
+        let trClassBool = false
+        let rowNum = 1
+            // let tdClassBool = false
+        let template = /*html*/ `
+        <div class="col-5 bg-primary mx-2 mb-5 mt-3 text-success">
+        <div class="row justify-content-center m-2 mt-3 bg-success text-primary">
+            <div class="col-12 mt-3">
+                <h4 class="text-center">${this.formulaName}</h4>
+            </div>
+            <div class="col-12 mt-3">
+                <h5 class="text-center">Total Weight: ${this.weightDisplay(this.totalWeight, this.defaultUnit)}</h5>
+            </div>
+        </div>
+            <div class="row">
+                <h5 onclick="app.recipeController.changeDefaultUnit('${this.recipeId}','${this.defaultUnit}')" class="cursor-pointer ml-5">Change all units</h5>
+                <i class="fa fa-hand-pointer-o ml-3" aria-hidden="true"></i>
+            </div>
+            <table class="mx-auto mb-4">
+                <tbody>`
 
         for (var i = 0; i < this.list.length; i++) {
             template += `
-            <div class="cursor-pointer" onclick="app.recipeController.changeUnit('${this.recipeId}', '${this.list[i].name}', '${this.list[i].unit}')">${this.list[i].name}  - ${this.weightDisplay(this.list[i].weight, this.list[i].unit)}
-                    
-            </div>`
+            <tr class=" text-primary ${trClassBool ? 'bg-secondary':'bg-success'}">
+            <td><h3 class="ml-4">${rowNum}</h3></td>
+                <td class="pr-3 custom-table-data-left font-larger">${this.list[i].name}</td>
+                <td class="pl-3 cursor-pointer custom-table-data-right font-larger" onclick="app.recipeController.changeUnit('${this.recipeId}', '${this.list[i].name}','${this.list[i].unit}')"> ${this.weightDisplay(this.list[i].weight, this.list[i].unit)}</td>
+                <td><i onclick="app.recipeController.changeUnit('${this.recipeId}', '${this.list[i].name}','${this.list[i].unit}')" class="cursor-pointer pr-4 fa fa-hand-pointer-o" aria-hidden="true"></i></td>
+            </tr>`
+
+            trClassBool = !trClassBool
+            rowNum++
         }
-        template += `</div>`
+        template += `</tbody></table></div>`
         return template
     }
     weightDisplay(value, unit) {
-        //takes in a  (number) value and a (string) unit pertaining to that value, and returns a string to display the weight in multiple units for ease of reading.
+        //takes in a  (number) value and a (string) unit pertaining to that value, and returns a string to display the weight in multiple sizes for ease of reading.
         let x = ''
         if (unit == 'oz') {
             if (value >= 16) {
@@ -51,4 +68,3 @@ export default class Recipe {
         return x
     }
 }
-

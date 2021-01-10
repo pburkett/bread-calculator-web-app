@@ -1,15 +1,11 @@
 $body-bg: #f2f2f2;
-
 $primary: #212121;
 $secondary: #757575;
 $success: #bdbdbd;
-$danger: #f4d47c;
+$danger: #540B0E;
 $dark: #540B0E;
-
 $info: #f4d47c;
-
 $warning: #0d3474;
-
 $blue: blue;
 $indigo: indigo;
 $purple: purple;
@@ -23,27 +19,5 @@ $cyan: cyan;
 $white: white;
 $gray: #4F4F4F;
 $gray-dark: darkslategray;
-
-$colors: (
-  "blue": $blue,
-  "indigo": $indigo,
-  "purple": $purple,
-  "pink": $pink,
-  "red": $red,
-  "orange": $orange,
-  "yellow": $yellow,
-  "green": $green,
-  "teal": $teal,
-  "cyan": $cyan,
-  "white": $white,
-  "gray": $gray,
-  "gray-dark": $gray-dark,
-);
-
-$color-ranges: (
-  0: 0,
-  10: 10,
-  20: 20,
-  30: 30,
-  40: 40
-)
+$colors: ( "blue": $blue, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "white": $white, "gray": $gray, "gray-dark": $gray-dark, );
+$color-ranges: ( 0: 0, 10: 10, 20: 20, 30: 30, 40: 40)

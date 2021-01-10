@@ -49,18 +49,18 @@ class FormulaService {
         }
     }
 
-    editFormula(id, dataObj){
-        
+    editFormula(id, dataObj) {
+
         let allFormulas = [...ProxyState.formulas, ...ProxyState.defaultFormulas]
         let toBeEdited = allFormulas.find(f => f.id == id)
 
         // iterate over the object keys in our edit data
-        for (let ind in Object.keys(dataObj)){
+        for (let ind in Object.keys(dataObj)) {
             // build an array with 3 strings: formula id, item id, and name || percentage
             let keysArr = Object.keys(dataObj)[ind].split('-')
 
             // alias the value to be injected
-            let val =  dataObj[Object.keys(dataObj)[ind]]
+            let val = dataObj[Object.keys(dataObj)[ind]]
 
             // cast our data into a Number() only if the location is a percentage
             if (keysArr[2] == 'ingredientPercentage' || keysArr[2] == 'flourPercentage') {
@@ -69,8 +69,12 @@ class FormulaService {
             // assign the new values into the formula object in memory
             toBeEdited.list.find(i => i.id == keysArr[1])[keysArr[2]] = val
             ProxyState.defaultFormulas = ProxyState.defaultFormulas
-            
+
         }
+    }
+    deleteFormula(id) {
+        ProxyState.formulas = ProxyState.formulas.filter(f => f.id != id)
+        ProxyState.defaultFormulas = ProxyState.defaultFormulas.filter(f => f.id != id)
     }
 }
 export const formulaService = new FormulaService()

@@ -3,110 +3,133 @@
 @import "./_overrides.scss";
 @import "./custom.scss";
 @import "./loaders.scss";
-
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: $body-bg;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $body-bg;
 }
+
 main {
-  flex-grow: 1;
+    flex-grow: 1;
 }
+
 header {
-  height: 20vh;
+    height: 20vh;
 }
+
 footer {
     height: 10vh;
 }
+
 .cursor-pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 .qty-input {
-  text-align: center;
-  width: 100%;
-  background: none;
-  border-style: none;
-  color: $warning;
+    text-align: center;
+    width: 100%;
+    background: none;
+    border-style: none;
+    color: $warning;
 }
-::placeholder{
-  color: $primary;
+
+::placeholder {
+    color: $primary;
 }
-#table-header-formulas{
-  transform: translateX(-2rem) rotate(270deg); 
+
+#table-header-formulas {
+    transform: translateX(-2rem) rotate(270deg);
 }
 
 .w-fit-content {
-  width: fit-content !important;
+    width: fit-content !important;
 }
+
 .order-form-td {
-  text-align: center;
-  vertical-align: middle !important;
-  width: 120px !important; 
-  border-left:5px solid $primary !important;;
-  border-top: 5px solid $primary !important;
-  border-right: none !important;
-  border-bottom: none !important;
-  border-style: solid;
-  border-width: 5px !important;
+    text-align: center;
+    vertical-align: middle !important;
+    width: 120px !important;
+    border-left: 5px solid $primary !important;
+    ;
+    border-top: 5px solid $primary !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-style: solid;
+    border-width: 5px !important;
 }
+
 .order-form-formula-header {
-  @extend .order-form-td;
-  width: 200px !important;
-  border-left: none !important;
-  text-align: center;
-
-}
-.order-form-shape-header{
-  @extend .order-form-td;
-  height: 125px !important;
-  text-align: center;
-}
-.header-btns-cont{
-  flex-direction: column;
-  position:absolute;
-  right:0;
-  top:20px;
-}
-.page-title{
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-#order-form-table{
-  border-style: solid;
-  border-color: $primary;
-  border-bottom: 5px solid $primary;
-  border-right: 5px solid $primary;
-  border-top: 1.5rem solid $primary;
-  border-left: 1.5rem solid $primary;
-
+    @extend .order-form-td;
+    width: 200px !important;
+    border-left: none !important;
+    text-align: center;
 }
 
-.custom-table-data{
-  border-top: none !important;
-  border-bottom: none !important;
-  
-  height: 55px !important;
-  width: fit-content;
-  
+.order-form-shape-header {
+    @extend .order-form-td;
+    height: 125px !important;
+    text-align: center;
 }
-.custom-table-data-left{
-  @extend .custom-table-data;
-  border-right: 8px solid $primary;
-  text-align: right;
-  
+
+.header-btns-cont {
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 20px;
 }
-.custom-table-data-right{
-  @extend .custom-table-data;
-  border-left: 8px solid $primary;
-  text-align: left;
+
+.page-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-.edit-formula-input{
-  padding: 0 !important;
-  box-sizing: border-box;
-  width: 200px;
+
+#order-form-table {
+    border-style: solid;
+    border-color: $primary;
+    border-bottom: 5px solid $primary;
+    border-right: 5px solid $primary;
+    border-top: 1.5rem solid $primary;
+    border-left: 1.5rem solid $primary;
 }
-.formula-table-text{
-  padding: 1px 2px;
-  width: 200px;
+
+.custom-table-data {
+    border-top: none !important;
+    border-bottom: none !important;
+    height: 55px !important;
+    width: fit-content;
+    padding: 1px 2px;
+    width: 200px;
+}
+
+.custom-table-data-left {
+    @extend .custom-table-data;
+    border-right: 8px solid $primary;
+    text-align: right;
+}
+
+.custom-table-data-right {
+    @extend .custom-table-data;
+    border-left: 8px solid $primary;
+    text-align: left;
+}
+
+.edit-formula-input {
+    padding: 0 !important;
+    box-sizing: border-box;
+    width: 200px;
+}
+
+// .formula-table-text {
+//     padding: 1px 2px;
+//     width: 200px;
+// }
+.modal-card {
+    background-color: $success;
+    padding: 8px;
+}
+
+.font-larger {
+    font-size: 1.3rem;
+    font-weight: 500;
 }

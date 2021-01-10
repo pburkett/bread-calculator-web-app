@@ -42,7 +42,6 @@ export default class FormulaDisplayController {
             let key = keysArray[ind].id
             dataObj[form[key].id] = form[key].value
             
-        
             let keys = form[key].id.split('-')
             console.log(keys[0], keys[1], keys[2]);
             

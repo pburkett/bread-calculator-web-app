@@ -8,12 +8,12 @@ export default class Formula {
         this.flourList = flourList
         this.id = id || generateId()
         this.list = [...this.flourList, ...this.ingredientList]
-        
+
         console.log([...this.flourList, ...this.ingredientList]);
     }
     RowTemplate(bgBool) {
 
-        return /*html*/`
+        return /*html*/ `
         <tr class="${bgBool ? 'bg-success' : 'bg-secondary'}">
         
             <td class="order-form-formula-header ${this.id}">
@@ -27,62 +27,74 @@ export default class Formula {
         <td class="order-form-td"><input placeholder="qty" type="text" form="form1" class="qty-input" id="${this.id}-${doughWeightID}"></td>
         `
     }
-    displayTemplate(){
-        return  `<div class="modal fade" id="modal-${this.id}" tabindex="-1" role="dialog">
+    displayTemplate() {
+        return `<div class="modal fade" id="modal-${this.id}" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="bg-primary text-success modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">${this.name}</h5>
+              <h5 onclick="" class="modal-title">${this.name}</h5>
               <p>Click item to edit</p>
             </div>
             <div class="modal-body container d-flex justify-content-center">
               ${this.tableTemplate()}
             </div>
             
-            <div class="modal-footer">
+            
+            
+            
+            
+            <div class="modal-footer justify-content-between">
+              <button onclick="app.orderFormController.deleteFormula('${this.id}')" type="button" class="btn btn-danger justify-self-start">Delete Formula</button>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" form="edit-${this.id}" class="btn-warning">Submit Changes</button>
+              <button type="submit" form="edit-${this.id}" class="btn btn-warning">Submit Changes</button>
             </div>
           </div>
         </div>
       </div>`
     }
-    tableTemplate(){
-      let tdClassBool = false
-        let trClassBool = false
-        let template = /*html*/`
-        <div class="d-flex h-50 bg-secondary justify-self-center">
+    tableTemplate() {
+            let tdClassBool = false
+            let trClassBool = false
+            let template = /*html*/ `
+        <div class="d-flex justify-self-center modal-card">
         <table>
         <form id="edit-${this.id}" onsubmit="app.formulaDisplayController.editFormula('${this.id}')">
         <tbody>`
 
-            for (let ind in this.list){
+            for (let ind in this.list) {
                 template += `<tr class="text-primary ${trClassBool ? 'bg-secondary':'bg-success'}">`
                 trClassBool = !trClassBool
                 for (let ind1 in this.list[ind]) {
-                  if (ind1 != 'id') {
-  
-                  
-                  
-                template += `<td id="${ind1}-${this.list[ind].id}" class="${tdClassBool ? 'custom-table-data-right': 'custom-table-data-left'}">
-                <h4 onclick="app.formulaDisplayController.editFormulaItemTemplate('${this.id}','${this.list[ind].id}', '${ind1}')" class="cursor-pointer formula-table-text">${this.list[ind][ind1]}</h4>
-                              </td>`
-                tdClassBool = !tdClassBool
-              }
-            } template += `</tr>`
-        }
-            template +=`
+                    if (ind1 != 'id') {
+
+
+
+                        template += `
+                        ${tdClassBool ? '':'<td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>' }
+                          <td id="${ind1}-${this.list[ind].id}" class="${tdClassBool ? 'custom-table-data-right': 'custom-table-data-left'}">
+                            <h4 onclick="app.formulaDisplayController.editFormulaItemTemplate('${this.id}','${this.list[ind].id}', '${ind1}')" class="cursor-pointer formula-table-text">${this.list[ind][ind1]}</h4>
+                            </td>
+                            ${tdClassBool ? '<td><i class=" fa fa-percent" aria-hidden="true"></i></td>':'' }
+                            
+                          
+                        `
+                        tdClassBool = !tdClassBool
+                    }
+                }
+                template += `</tr>`
+            }
+            template += `
             </tbody>
             </form>
             </table>
             </div>
         `
-        return template
-    }
-    // displayItemTemplate(ind, ind1) {
-    //   console.log(ind, ind1);
-    //   return `
-    //   <h4 onclick="app.formulaDisplayController.editFormulaItemTemplate('${this.id}','${this.list[ind].id}', '${ind1}')" class="cursor-pointer formula-table-text">${this.list[ind][ind1]}</h4>
-    //   `
-    // }
+            return template
+        }
+        // displayItemTemplate(ind, ind1) {
+        //   console.log(ind, ind1);
+        //   return `
+        //   <h4 onclick="app.formulaDisplayController.editFormulaItemTemplate('${this.id}','${this.list[ind].id}', '${ind1}')" class="cursor-pointer formula-table-text">${this.list[ind][ind1]}</h4>
+        //   `
+        // }
 }
